@@ -4,5 +4,52 @@
     "name": "Salome",
     "email": "salome@example.com",
     "role": "client"
+  },
+  {
+    "id": 1765467532723,
+    "name": "Salome Chkhetiani",
+    "email": "salomechkhetiani@gmail.com",
+    "role": "client"
+  },
+  {
+    "id": 1765467845629,
+    "name": "freelancer freelancer ",
+    "email": "freelancer@gmail.com",
+    "role": "freelancer"
+  },
+  {
+    "id": 1765469131223,
+    "name": "Test Client",
+    "email": "testclient@example.com",
+    "password": "123456",
+    "role": "client"
+  },
+  {
+    "id": 1765470611331,
+    "name": "Freelancer Tester",
+    "email": "freelancer1@gmail.com",
+    "password": "87654321",
+    "role": "freelancer"
+  },
+  {
+    "id": 1765470718869,
+    "name": "Admin Admin",
+    "email": "admin1@gmail.com",
+    "password": "admin123",
+    "role": "admin"
+  },
+  {
+    "id": 1765485635965,
+    "name": "Salome Chkhetiani",
+    "email": "salomechkhetiani0@gmail.com",
+    "password": "salomesalome",
+    "role": "client"
+  },
+  {
+    "id": 1765485961128,
+    "name": "Giorgi Giorgadze ",
+    "email": "giogio@gmail.com",
+    "password": "87654321",
+    "role": "freelancer"
   }
 ]

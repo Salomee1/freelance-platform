@@ -5,5 +5,59 @@
     "freelancerId": 2,
     "coverLetter": "I would love to work on this project!",
     "status": "pending"
+  },
+  {
+    "id": 1765472710981,
+    "jobId": 1765472438477,
+    "freelancerId": 1765470611331,
+    "status": "rejected"
+  },
+  {
+    "id": 1765472726777,
+    "jobId": 1765472438477,
+    "freelancerId": 1765470611331,
+    "status": "accepted"
+  },
+  {
+    "id": 1765476806094,
+    "jobId": 1765476366434,
+    "freelancerId": 1765470611331,
+    "status": "accepted"
+  },
+  {
+    "id": 1765486069028,
+    "jobId": 1765485906149,
+    "freelancerId": 1765485961128,
+    "coverLetter": "Hello, i am willing to work on your project. c",
+    "status": "accepted",
+    "rating": null,
+    "feedback": ""
+  },
+  {
+    "id": 1765486140562,
+    "jobId": 1765486128476,
+    "freelancerId": 1765485961128,
+    "coverLetter": "kjb kj",
+    "status": "accepted",
+    "rating": null,
+    "feedback": ""
+  },
+  {
+    "id": 1765486788975,
+    "jobId": 1765486633879,
+    "freelancerId": 1765485961128,
+    "coverLetter": "i want to work for you",
+    "status": "accepted",
+    "rating": null,
+    "feedback": ""
+  },
+  {
+    "id": 1765486855107,
+    "jobId": 1765486633879,
+    "freelancerId": 1765485961128,
+    "coverLetter": "i want to worj for y",
+    "status": "rejected",
+    "rating": null,
+    "feedback": ""
   }
 ]

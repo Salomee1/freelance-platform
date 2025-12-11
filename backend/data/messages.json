@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1765483320325,
+    "proposalId": 1765472726777,
+    "senderId": 1765469131223,
+    "timestamp": "2025-12-11T20:02:00.325Z"
+  },
+  {
+    "id": 1765483325519,
+    "proposalId": 1765472726777,
+    "senderId": 1765469131223,
+    "timestamp": "2025-12-11T20:02:05.519Z"
+  },
+  {
+    "id": 1765483396808,
+    "proposalId": 1765472726777,
+    "senderId": 1765470611331,
+    "timestamp": "2025-12-11T20:03:16.808Z"
+  },
+  {
+    "id": 1765483780702,
+    "proposalId": 1765476806094,
+    "senderId": 1765469131223,
+    "timestamp": "2025-12-11T20:09:40.703Z"
+  },
+  {
+    "id": 1765485034905,
+    "proposalId": 1765476806094,
+    "senderId": 1765469131223,
+    "senderName": "Test Client",
+    "text": "hello",
+    "timestamp": "2025-12-11T20:30:34.905Z"
+  },
+  {
+    "id": 1765485088623,
+    "proposalId": 1765472726777,
+    "senderId": 1765470611331,
+    "senderName": "Freelancer Tester",
+    "text": "hello",
+    "timestamp": "2025-12-11T20:31:28.623Z"
+  },
+  {
+    "id": 1765486243277,
+    "proposalId": 1765486140562,
+    "senderId": 1765485961128,
+    "senderName": "Giorgi Giorgadze ",
+    "text": "hello",
+    "timestamp": "2025-12-11T20:50:43.277Z"
+  },
+  {
+    "id": 1765486340421,
+    "proposalId": 1765486069028,
+    "senderId": 1765485635965,
+    "senderName": "Salome Chkhetiani",
+    "text": "hello",
+    "timestamp": "2025-12-11T20:52:20.421Z"
+  },
+  {
+    "id": 1765486436117,
+    "proposalId": 1765486069028,
+    "senderId": 1765485961128,
+    "senderName": "Giorgi Giorgadze ",
+    "text": "Hi",
+    "timestamp": "2025-12-11T20:53:56.117Z"
+  },
+  {
+    "id": 1765487050515,
+    "proposalId": 1765486788975,
+    "senderId": 1765485635965,
+    "senderName": "Salome Chkhetiani",
+    "text": "i accept you, tell me more ab you",
+    "timestamp": "2025-12-11T21:04:10.515Z"
+  },
+  {
+    "id": 1765487134350,
+    "proposalId": 1765486788975,
+    "senderId": 1765485961128,
+    "senderName": "Giorgi Giorgadze ",
+    "text": "thank you, you can see my resume here ,,,,,,,,,,,,,,,",
+    "timestamp": "2025-12-11T21:05:34.350Z"
+  },
+  {
+    "id": 1765490018355,
+    "proposalId": 1765486069028,
+    "senderId": 1765485635965,
+    "senderName": "Salome Chkhetiani",
+    "text": "hi",
+    "timestamp": "2025-12-11T21:53:38.355Z"
+  }
+]

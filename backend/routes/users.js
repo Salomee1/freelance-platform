@@ -4,85 +4,107 @@ const path = require("path");
 
 const router = express.Router();
 
-// Path to users.json file
-const usersFilePath = path.join(__dirname, "..", "data", "users.json");
+const USERS_FILE = path.join(__dirname, "../data/users.json");
 
-// ------------------ GET ALL USERS ------------------ //
-router.get("/", (req, res) => {
-  const users = JSON.parse(fs.readFileSync(usersFilePath, "utf8"));
-  res.json(users);
-});
+// ----------- HELPERS ----------- //
+function loadUsers() {
+  if (!fs.existsSync(USERS_FILE)) {
+    fs.writeFileSync(USERS_FILE, "[]", "utf8");
+  }
+  const data = fs.readFileSync(USERS_FILE, "utf8").trim();
+  return data ? JSON.parse(data) : [];
+}
 
-// ------------------ CREATE A NEW USER ------------------ //
-router.post("/", (req, res) => {
-  const users = JSON.parse(fs.readFileSync(usersFilePath, "utf8"));
+function saveUsers(users) {
+  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
+}
+
+// ----------- REGISTER USER ----------- //
+router.post("/register", (req, res) => {
+  const { name, email, password, role } = req.body;
+
+  if (!name || !email || !password || !role) {
+    return res
+      .status(400)
+      .json({ message: "Name, email, password and role are required" });
+  }
+
+  const users = loadUsers();
+
+  // Check for duplicate email
+  if (users.some((u) => u.email === email)) {
+    return res.status(409).json({ message: "User with this email already exists" });
+  }
 
   const newUser = {
     id: Date.now(),
-    name: req.body.name,
-    email: req.body.email,
-    role: req.body.role  // "client", "freelancer", or "admin"
+    name,
+    email,
+    password,
+    role,
   };
 
   users.push(newUser);
+  saveUsers(users);
 
-  fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-
-  res.status(201).json(newUser);
+  res.json({ message: "User registered", user: newUser });
 });
 
-// ------------------ GET USER BY ID ------------------ //
-router.get("/:id", (req, res) => {
-  const userId = Number(req.params.id);
-  const users = JSON.parse(fs.readFileSync(usersFilePath, "utf8"));
+// ----------- LOGIN USER ----------- //
+router.post("/login", (req, res) => {
+  const { email, password, role } = req.body;
 
-  const user = users.find(u => u.id === userId);
+  if (!email || !password || !role) {
+    return res.status(400).json({
+      message: "Email, password and role are required",
+    });
+  }
+
+  const users = loadUsers();
+  const user = users.find((u) => u.email === email);
 
   if (!user) {
     return res.status(404).json({ message: "User not found" });
   }
 
-  res.json(user);
-});
-
-// ------------------ UPDATE USER ------------------ //
-router.put("/:id", (req, res) => {
-  const userId = Number(req.params.id);
-  const users = JSON.parse(fs.readFileSync(usersFilePath, "utf8"));
-
-  const user = users.find(u => u.id === userId);
-
-  if (!user) {
-    return res.status(404).json({ message: "User not found" });
+  if (user.password !== password) {
+    return res.status(401).json({ message: "Incorrect password" });
   }
 
-  // Update fields if provided
-  if (req.body.name) user.name = req.body.name;
-  if (req.body.email) user.email = req.body.email;
-  if (req.body.role) user.role = req.body.role;
+  if (user.role !== role) {
+    return res.status(403).json({
+      message: `This email belongs to a ${user.role}. You cannot log in as ${role}.`,
+    });
+  }
 
-  fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-
-  res.json(user);
+  res.json({
+    message: "Login successful",
+    user,
+  });
 });
 
-// ------------------ DELETE USER ------------------ //
+// ----------- ADMIN: GET ALL USERS ----------- //
+router.get("/", (req, res) => {
+  const users = loadUsers();
+  res.json(users);
+});
+
+// ----------- ADMIN: DELETE USER ----------- //
 router.delete("/:id", (req, res) => {
-  const userId = Number(req.params.id);
-  let users = JSON.parse(fs.readFileSync(usersFilePath, "utf8"));
+  const id = Number(req.params.id);
+  let users = loadUsers();
 
-  const index = users.findIndex(u => u.id === userId);
-
-  if (index === -1) {
+  const exists = users.some((u) => u.id === id);
+  if (!exists) {
     return res.status(404).json({ message: "User not found" });
   }
 
-  const deletedUser = users[index];
-  users.splice(index, 1);
+  users = users.filter((u) => u.id !== id);
+  saveUsers(users);
 
-  fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-
-  res.json({ message: "User deleted", deletedUser });
+  res.json({ message: "User deleted" });
 });
 
 module.exports = router;
+
+

@@ -70,5 +70,15 @@ router.delete("/:id", (req, res) => {
 
   res.json({ message: "Job deleted", deletedJob });
 });
+router.delete("/:id", (req, res) => {
+  const jobId = Number(req.params.id);
+
+  const jobs = JSON.parse(fs.readFileSync(jobsFilePath, "utf8"));
+  const updatedJobs = jobs.filter((j) => j.id !== jobId);
+
+  fs.writeFileSync(jobsFilePath, JSON.stringify(updatedJobs, null, 2));
+
+  res.json({ message: "Job deleted successfully" });
+});
 
 module.exports = router;

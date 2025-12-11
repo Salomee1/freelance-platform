@@ -1,0 +1,71 @@
+/* ------------ GLOBAL RESET ------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* ------------ APP CONTAINER ------------ */
+.app-container {
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+/* ------------ NAVIGATION BAR ------------ */
+.navbar {
+  display: flex;
+  gap: 20px;
+  padding: 16px 24px;
+  background: #2d3436;
+  border-bottom: 2px solid #00000015;
+}
+
+.nav-link {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.nav-link:hover {
+  color: #00cec9;
+}
+
+/* ------------ HEADERS ------------ */
+h1, h2 {
+  margin-bottom: 16px;
+  color: #2d3436;
+}
+
+/* ------------ INPUTS & BUTTONS ------------ */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dadada;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+button {
+  padding: 10px 18px;
+  border: none;
+  background: #0984e3;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #74b9ff;
+}
+
+/* ------------ CARD SECTIONS (Jobs, Proposals, etc.) ------------ */
+.card {
+  background: white;
+  border: 1px solid #e6e6e6;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
